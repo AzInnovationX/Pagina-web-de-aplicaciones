@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones - Transforma tu negocio con una app profesional</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #4A6FFF;
+            --secondary-color: #FF6B6B;
+            --accent-color: #FFC107;
+            --dark-color: #2C3E50;
+            --light-color: #F8F9FA;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 80%;
+            left: 10%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/appdevelopment/1920/1080.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 0 15px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+            color: var(--dark-color);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 193, 7, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Why App Section */
+        .why-app {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(74, 111, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .feature-text p {
+            color: #666;
+            margin: 0;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .app-showcase {
+            position: relative;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: white;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app-showcase:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .app-preview {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://picsum.photos/seed/appscreen/400/300.jpg') center/cover;
+            opacity: 0.3;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .app-info {
+            padding: 20px;
+            background: white;
+        }
+        
+        .app-info h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .app-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        .app-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .app-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .app-showcase:hover .app-overlay {
+            opacity: 1;
+        }
+        
+        .app-overlay i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .app-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .app-overlay p {
+            font-size: 1rem;
+            margin: 0;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .final-cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .final-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .app-showcase {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Aplicaciones</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-app">¿Por qué una App?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Características</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Ejemplos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-aos="fade-down">Transforma tu negocio con una app profesional</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Lleva tu empresa al siguiente nivel con una aplicación Android moderna, fácil de usar y diseñada para impulsar tu crecimiento</p>
+                <a href="#final-cta" class="cta-button" data-aos="zoom-in" data-aos-delay="400">Quiero mi App</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why App Section -->
+    <section id="why-app" class="why-app">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>¿Por qué una App para tu Negocio?</h2>
+                <p>Descubre cómo una aplicación puede transformar la forma en que interactúas con tus clientes y haces crecer tu negocio</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Crecimiento Acelerado</h3>
+                        <p>Alcanza nuevos clientes y aumenta tus ventas con una app que funciona como tu mejor vendedor 24/7, incluso cuando estás descansando.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Fácil de Usar</h3>
+                        <p>Diseñamos interfaces intuitivas que tus clientes amarán. Sin complicaciones, solo una experiencia fluida que los mantendrá regresando.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Descarga Inmediata</h3>
+                        <p>Apps optimizadas para descargas rápidas y funcionamiento fluido, incluso en conexiones a internet más lentas.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Análisis en Tiempo Real</h3>
+                        <p>Obtén información valiosa sobre el comportamiento de tus clientes y toma decisiones basadas en datos reales.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Notificaciones Directas</h3>
+                        <p>Comunica promociones, novedades y recordatorios directamente a tus clientes con notificaciones push personalizadas.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Seguridad Garantizada</h3>
+                        <p>Protege los datos de tus clientes y tu negocio con las más altas estándares de seguridad en el desarrollo de aplicaciones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Características de Nuestras Apps</h2>
+                <p>Tecnología de vanguardia combinada con diseño excepcional para crear la aplicación perfecta para tu negocio</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Diseño Moderno y Profesional</h3>
+                            <p>Interfaces atractivas que reflejan la identidad de tu marca y cautivan a tus usuarios desde el primer momento.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Rendimiento Superior</h3>
+                            <p>Apps optimizadas para funcionar rápidamente en una amplia gama de dispositivos Android.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Sincronización en la Nube</h3>
+                            <p>Tus datos siempre seguros y accesibles desde cualquier lugar, con sincronización automática.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Pagos Seguros</h3>
+                            <p>Integración con múltiples pasarelas de pago para transacciones seguras y sin complicaciones.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Gestión de Usuarios</h3>
+                            <p>Perfiles personalizados, historial de compras y preferencias para una experiencia única.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Soporte Continuo</h3>
+                            <p>Asistencia técnica y actualizaciones regulares para mantener tu app funcionando perfectamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Ejemplos de Aplicaciones</h2>
+                <p>Haz clic en cualquier aplicación para verla en acción</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="https://www.appcreator24.com/app3613525-wg3hy6" target="_blank" class="text-decoration-none">
+                        <div class="app-showcase">
+                            <div class="app-preview">
+                                <div class="app-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                            </div>
+                            <div class="app-info">
+                                <h3>Tienda Online Pro</h3>
+                                <p>Plataforma completa de e-commerce con catálogo interactivo y gestión de inventario</p>
+                                <span class="app-badge">E-commerce</span>
+                            </div>
+                            <div class="app-overlay">
+                                <i class="fas fa-external-link-alt"></i>
+                                <h3>Ver Aplicación</h3>
+                                <p>Explora todas las características de esta tienda online profesional</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="https://www.appcreator24.com/app3726880-m05hai" target="_blank" class="text-decoration-none">
+                        <div class="app-showcase">
+                            <div class="app-preview">
+                                <div class="app-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                            </div>
+                            <div class="app-info">
+                                <h3>Restaurante Digital</h3>
+                                <p>Sistema de reservas, menú digital y pedidos para llevar</p>
+                                <span class="app-badge">Restaurantes</span>
+                            </div>
+                            <div class="app-overlay">
+                                <i class="fas fa-external-link-alt"></i>
+                                <h3>Ver Aplicación</h3>
+                                <p>Descubre cómo modernizar tu restaurante con tecnología</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <a href="https://www.appcreator24.com/app3714378-3zqah4" target="_blank" class="text-decoration-none">
+                        <div class="app-showcase">
+                            <div class="app-preview">
+                                <div class="app-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                            </div>
+                            <div class="app-info">
+                                <h3>Fitness Center</h3>
+                                <p>Reservas de clases, seguimiento de progreso y planes personalizados</p>
+                                <span class="app-badge">Salud & Fitness</span>
+                            </div>
+                            <div class="app-overlay">
+                                <i class="fas fa-external-link-alt"></i>
+                                <h3>Ver Aplicación</h3>
+                                <p>Gestiona tu gimnasio de manera eficiente y moderna</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <a href="https://www.appcreator24.com/app3525668-eyzhnw" target="_blank" class="text-decoration-none">
+                        <div class="app-showcase">
+                            <div class="app-preview">
+                                <div class="app-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                            </div>
+                            <div class="app-info">
+                                <h3>Servicios Pro</h3>
+                                <p>Agendamiento de servicios técnicos y gestión de clientes</p>
+                                <span class="app-badge">Servicios</span>
+                            </div>
+                            <div class="app-overlay">
+                                <i class="fas fa-external-link-alt"></i>
+                                <h3>Ver Aplicación</h3>
+                                <p>Optimiza la gestión de tus servicios técnicos</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <a href="https://www.appcreator24.com/app3573795-q3zenh" target="_blank" class="text-decoration-none">
+                        <div class="app-showcase">
+                            <div class="app-preview">
+                                <div class="app-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                            </div>
+                            <div class="app-info">
+                                <h3>EduLearn Plus</h3>
+                                <p>Plataforma educativa con cursos online y seguimiento del aprendizaje</p>
+                                <span class="app-badge">Educación</span>
+                            </div>
+                            <div class="app-overlay">
+                                <i class="fas fa-external-link-alt"></i>
+                                <h3>Ver Aplicación</h3>
+                                <p>Transforma la educación con tecnología innovadora</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <a href="https://www.appcreator24.com/app3367917-te8yq3" target="_blank" class="text-decoration-none">
+                        <div class="app-showcase">
+                            <div class="app-preview">
+                                <div class="app-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            <div class="app-info">
+                                <h3>SaludConnect</h3>
+                                <p>Citas médicas, historial de pacientes y telemedicina</p>
+                                <span class="app-badge">Salud</span>
+                            </div>
+                            <div class="app-overlay">
+                                <i class="fas fa-external-link-alt"></i>
+                                <h3>Ver Aplicación</h3>
+                                <p>Moderniza tu práctica médica con soluciones digitales</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA Section -->
+    <section id="final-cta" class="final-cta">
+        <div class="container">
+            <div data-aos="zoom-in">
+                <h2>Impulsa tu negocio con una app hoy mismo</h2>
+                <p>No esperes más para llevar tu empresa al siguiente nivel. Contáctanos y comencemos a crear la aplicación perfecta para tu negocio.</p>
+                <a href="#" class="final-cta-button">Comenzar Ahora</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-logo">Aplicaciones</div>
+                    <p>Transformando negocios con tecnología innovadora y diseño excepcional.</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#why-app">¿Por qué una App?</a></li>
+                        <li><a href="#features">Características</a></li>
+                        <li><a href="#gallery">Ejemplos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all feature items
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+        
+        // Add click tracking for app showcase links
+        document.querySelectorAll('.app-showcase').forEach(showcase => {
+            showcase.addEventListener('click', function(e) {
+                // Add ripple effect
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
