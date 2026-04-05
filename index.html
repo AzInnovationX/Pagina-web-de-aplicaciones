@@ -278,135 +278,6 @@
             margin: 0;
         }
         
-        /* Gallery Section */
-        .gallery {
-            padding: 100px 0;
-            background-color: var(--light-color);
-        }
-        
-        .app-showcase {
-            position: relative;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background: white;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .app-showcase:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-        
-        .app-preview {
-            flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .app-preview::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
-            opacity: 0.3;
-        }
-        
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .app-info {
-            padding: 20px;
-            background: white;
-        }
-        
-        .app-info h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--dark-color);
-        }
-        
-        .app-info p {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 0;
-        }
-        
-        .app-badge {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--dark-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-        
-        .app-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-        
-        .app-showcase:hover .app-overlay {
-            opacity: 1;
-        }
-        
-        .app-overlay i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-        
-        .app-overlay h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .app-overlay p {
-            font-size: 1rem;
-            margin: 0;
-            text-align: center;
-            padding: 0 20px;
-        }
         
         /* Final CTA Section */
         .final-cta {
@@ -548,9 +419,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#features">Características</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Ejemplos</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -664,26 +532,6 @@
                     </div>
                 </div>
                 
-                <div class="col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <h3>Funciona Sin Internet</h3>
-                        <p>Gracias a la tecnología Service Worker, tu PWA sigue funcionando aunque no haya conexión. Tus clientes siempre podrán usarla.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <h3>Actualizaciones Automáticas</h3>
-                        <p>No pedimos a tus clientes que actualicen. La PWA se actualiza sola en segundo plano, siempre con la última versión.</p>
-                    </div>
-                </div>
-                
                 <div class="col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -750,16 +598,6 @@
                     
                     <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-plane-slash"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h3>100% Offline Ready</h3>
-                            <p>Con Service Worker integrado, la app funciona sin conexión a internet.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <div class="feature-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div class="feature-text">
@@ -810,85 +648,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Ejemplos de PWA</h2>
-                <p>Haz clic en cualquier PWA para verla en acción</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <a href="https://www.appcreator24.com/app3820425-v706dz" target="_blank" class="text-decoration-none">
-                        <div class="app-showcase">
-                            <div class="app-preview">
-                                <div class="app-icon">
-                                    <img src="https://i.ibb.co/rGzfxncM/199.png" alt="199" style="width: 50px; height: 50px;">
-                                </div>
-                            </div>
-                            <div class="app-info">
-                                <h3>Ejemplo 1</h3>
-                                <p>Portal musical con streaming integrado y tienda digital.</p>
-                                <span class="app-badge">Musica</span>
-                            </div>
-                            <div class="app-overlay">
-                                <i class="fas fa-external-link-alt"></i>
-                                <h3>Ver PWA</h3>
-                                <p>Explora todas las características de esta tienda online profesional</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <a href="https://www.appcreator24.com/app3820446-r29psj" target="_blank" class="text-decoration-none">
-                        <div class="app-showcase">
-                            <div class="app-preview">
-                                <div class="app-icon">
-                                    <img src="https://i.ibb.co/Wv9m86j5/183.png" alt="183" style="width: 50px; height: 50px;">
-                                </div>
-                            </div>
-                            <div class="app-info">
-                                <h3>Ejemplo 2</h3>
-                                <p>Plataforma de belleza con sistema de citas inteligente.</p>
-                                <span class="app-badge">Belleza</span>
-                            </div>
-                            <div class="app-overlay">
-                                <i class="fas fa-external-link-alt"></i>
-                                <h3>Ver PWA</h3>
-                                <p>Descubre cómo modernizar tu restaurante con tecnología</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <a href="https://www.appcreator24.com/app3820456-rsbv3o" target="_blank" class="text-decoration-none">
-                        <div class="app-showcase">
-                            <div class="app-preview">
-                                <div class="app-icon">
-                                    <img src="https://i.ibb.co/rRT3hqjC/168.png" alt="168" style="width: 50px; height: 50px;">
-                                </div>
-                            </div>
-                            <div class="app-info">
-                                <h3>Ejemplo 3</h3>
-                                <p>Sistema integral para food service con pedidos en tiempo real.</p>
-                                <span class="app-badge">Comida</span>
-                            </div>
-                            <div class="app-overlay">
-                                <i class="fas fa-external-link-alt"></i>
-                                <h3>Ver PWA</h3>
-                                <p>Gestiona tu gimnasio de manera eficiente y moderna</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
             </div>
         </div>
     </section>
